@@ -28,6 +28,7 @@ def cadastrar_usuario():
     return render_template("cadastrar_usuario.html")
 
 
+
 @app.route("/cadastrar_livro", methods=["GET", "POST"])
 def cadastrar_livro():
     if request.method == "POST":
@@ -35,7 +36,7 @@ def cadastrar_livro():
         autor = request.form["autor"]
         ano = request.form["ano"]
 
-        
+       
         catalogo.append({"titulo": titulo, "autor": autor, "ano": ano, "disponivel": True})
         return redirect(url_for("index"))
 
@@ -65,7 +66,7 @@ def emprestar_livro():
         usuario = next((u for u in usuarios if u["email"] == email), None)
         livro = next((l for l in catalogo if l["titulo"] == titulo and l["disponivel"]), None)
 
-        
+      
         if not usuario:
             return render_template("emprestar_livro.html", error="Usuário não encontrado!", usuarios=usuarios, catalogo=catalogo)
         if not livro:
@@ -79,7 +80,6 @@ def emprestar_livro():
     return render_template("emprestar_livro.html", usuarios=usuarios, catalogo=catalogo, error=None)
 
 
-
 @app.route("/listar_emprestimos")
 def listar_emprestimos():
     return render_template("listar_emprestimos.html", emprestimos=emprestimos, usuarios=usuarios)
@@ -88,6 +88,12 @@ def listar_emprestimos():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+      
+
+
+       
+
 
 
 
