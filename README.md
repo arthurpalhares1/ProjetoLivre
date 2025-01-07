@@ -32,7 +32,7 @@ Estrutura do projeto
 ```bash
 pip install Flask
 
-/biblioteca
+biblioteca
     /static
         style.css         
     /templates
