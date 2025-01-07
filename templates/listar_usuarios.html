@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários Cadastrados</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Usuários Cadastrados</h1>
+    </header>
+    <main>
+        <ul>
+            {% if usuarios %}
+                {% for usuario in usuarios %}
+                    <li><span>Nome:</span> {{ usuario.nome }} | <span>Email:</span> {{ usuario.email }}</li>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum usuário cadastrado.</p>
+            {% endif %}
+        </ul>
+        <a class="button" href="/">Voltar</a>
+    </main>
+</body>
+</html>

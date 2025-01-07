@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empréstimos</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Empréstimos Registrados</h1>
+    </header>
+    <main>
+        <ul>
+            {% if emprestimos %}
+                {% for email, livros in emprestimos.items() %}
+                    <li>
+                        <span>Email:</span> {{ email }}
+                        <ul>
+                            {% for livro in livros %}
+                                <li>{{ livro.titulo }} - {{ livro.autor }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum empréstimo registrado.</p>
+            {% endif %}
+        </ul>
+        <a class="button" href="/">Voltar</a>
+    </main>
+</body>
+</html>
