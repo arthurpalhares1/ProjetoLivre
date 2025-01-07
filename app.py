@@ -3,9 +3,9 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 
-usuarios = []  # Lista para armazenar usuários
-catalogo = []  # Lista para armazenar livros
-emprestimos = {}  # Dicionário para armazenar empréstimos (email: [livros])
+usuarios = [] 
+catalogo = [] 
+emprestimos = {} 
 
 
 
@@ -21,7 +21,7 @@ def cadastrar_usuario():
         nome = request.form["nome"]
         email = request.form["email"]
 
-        # Adiciona o usuário na lista de usuários
+       
         usuarios.append({"nome": nome, "email": email})
         return redirect(url_for("index"))
 
